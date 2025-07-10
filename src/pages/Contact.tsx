@@ -4,11 +4,13 @@ import {
   Heading,
   Text,
   VStack,
-  Button,
+  Link,
+  HStack,
+  Icon,
 } from '@chakra-ui/react';
-import { FormControl, FormLabel } from '@chakra-ui/form-control';
-import { Input, Textarea } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { FaDiscord, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -34,67 +36,60 @@ const Contact = () => {
           >
             {t('contact.description')}
           </Text>
-          <Box
-            p={8}
-            border="1px solid"
-            borderColor="brand.border"
-            bg="brand.card"
-            w="full"
-            maxW="2xl"
-          >
-            <VStack gap={6}>
-              <FormControl>
-                <FormLabel color="brand.text" fontFamily="monospace">
-                  {t('contact.form.name')}
-                </FormLabel>
-                <Input
-                  bg="transparent"
-                  borderColor="brand.border"
-                  color="brand.text"
-                  fontFamily="monospace"
-                  _hover={{ borderColor: 'brand.primary' }}
-                  _focus={{ borderColor: 'brand.primary', boxShadow: 'glow' }}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel color="brand.text" fontFamily="monospace">
-                  {t('contact.form.email')}
-                </FormLabel>
-                <Input
-                  bg="transparent"
-                  borderColor="brand.border"
-                  color="brand.text"
-                  fontFamily="monospace"
-                  _hover={{ borderColor: 'brand.primary' }}
-                  _focus={{ borderColor: 'brand.primary', boxShadow: 'glow' }}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel color="brand.text" fontFamily="monospace">
-                  {t('contact.form.message')}
-                </FormLabel>
-                <Textarea
-                  bg="transparent"
-                  borderColor="brand.border"
-                  color="brand.text"
-                  fontFamily="monospace"
-                  _hover={{ borderColor: 'brand.primary' }}
-                  _focus={{ borderColor: 'brand.primary', boxShadow: 'glow' }}
-                  rows={6}
-                />
-              </FormControl>
-              <Button
-                type="submit"
-                bg="brand.primary"
-                color="brand.background"
-                _hover={{ boxShadow: 'glow' }}
-                fontFamily="monospace"
-                alignSelf="flex-start"
-              >
-                {t('contact.form.submit')}
-              </Button>
-            </VStack>
-          </Box>
+          <VStack align="flex-start" w="full">
+            <Link
+              href="https://discord.gg/fVM6pd3Z"
+              color="brand.text"
+              _hover={{
+                color: 'brand.accent',
+                textShadow: 'glow',
+              }}
+            >
+              <HStack>
+                <Icon as={FaDiscord} boxSize={6} />
+                <Text fontFamily="monospace">Discord</Text>
+              </HStack>
+            </Link>
+            <Link
+              href="https://x.com/bloxchangedev"
+              color="brand.text"
+              _hover={{
+                color: 'brand.accent',
+                textShadow: 'glow',
+              }}
+            >
+              <HStack>
+                <Icon as={FaXTwitter} boxSize={6} />
+                <Text fontFamily="monospace">X</Text>
+              </HStack>
+            </Link>
+            <Link
+              href="https://github.com/bloxchange/traze"
+              color="brand.text"
+              _hover={{
+                color: 'brand.accent',
+                textShadow: 'glow',
+              }}
+            >
+              <HStack>
+                <Icon as={FaGithub} boxSize={6} />
+                <Text fontFamily="monospace">GitHub</Text>
+              </HStack>
+            </Link>
+            <Link
+              href="mailto:ducnn@bloxchange.dev"
+              color="brand.text"
+              _hover={{
+                color: 'brand.accent',
+                textShadow: 'glow',
+              }}
+            >
+              <HStack>
+                <Icon as={FaEnvelope} boxSize={6} />
+                <Text fontFamily="monospace">ducnn@bloxchange.dev</Text>
+              </HStack>
+            </Link>
+          </VStack>
         </VStack>
       </Container>
     </Box>

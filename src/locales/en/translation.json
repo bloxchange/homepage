@@ -13,43 +13,42 @@
     "title": "About bloXchange",
     "mission": {
       "title": "Our Mission",
-      "description": "To revolutionize digital asset trading through innovative blockchain technology."
+      "description": "Recently discovering the fascinating potential of blockchain technology, I was inspired to contribute to the DeFi ecosystem. Having observed that many investors and traders lack deep technical knowledge, bloXchange aims to develop tools that can help traders navigate the decentralized finance landscape more effectively."
     },
     "vision": {
       "title": "Our Vision",
-      "description": "Creating a seamless, secure, and accessible platform for the future of finance."
+      "description": "We're focused on creating practical tools for DeFi trading that help improve performance and reduce risks. While blockchain technology inspires DeFi, centralization still exists in various aspects. Our goal is to make decentralized trading more accessible and safer for everyone."
     },
     "values": {
-      "title": "Our Values",
-      "description": "Trust, innovation, and community-driven development are at our core."
+      "title": "Our Approach",
+      "description": "Through careful development of trading tools and risk management solutions, we hope to contribute positively to the DeFi ecosystem. Most of our products will be open source and free to use, reflecting our commitment to the community. We're learning and growing alongside the community as blockchain technology evolves."
     }
   },
   "traze": {
     "title": "Traze Technology",
-    "description": "Experience the power of our proprietary Traze technology, designed to enhance your trading experience with advanced features and capabilities.",
+    "description": "Traze is a comprehensive suite of trading tools for DEXs on the Solana blockchain, designed to enhance your decentralized trading experience. While some trading platforms charge extra fees (0.5-1% of transaction value) to maintain their infrastructure, Traze runs directly in your browser and uses your RPC endpoint to interact with the blockchain network, helping you save on fees. Moreover, Traze enhances security by avoiding communication with external services (except your RPC endpoint), not even using Google Analytics. Currently, Traze supports pump.fun, with plans to expand support to other DEXs step by step.",
     "features": {
       "title": "Key Features",
       "list": [
-        "Advanced order matching engine",
-        "Real-time market data analysis",
-        "Secure transaction processing",
-        "Automated risk management"
+        "Open source and free to use",
+        "No extra fees or charges",
+        "Specialized for Solana DEX trading",
+        "Advanced trading tools and analytics"
       ]
     },
     "buttons": {
       "learn": "Learn More",
       "docs": "Documentation"
+    },
+    "docs": {
+      "title": "Traze Documentation",
+      "description": "Comprehensive guide to using Traze's trading tools and features",
+      "content": "Welcome to the Traze documentation. Here you'll find detailed information about setting up and using Traze's trading tools, understanding its features, and maximizing your trading efficiency on Solana DEXs."
     }
   },
   "contact": {
     "title": "Contact Us",
-    "description": "Have questions? We're here to help. Send us a message and we'll respond as soon as possible.",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "submit": "Send Message"
-    }
+    "description": "Have questions? We're here to help. Connect with us through any of these channels:"
   },
   "language": {
     "en": "English",

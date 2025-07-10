@@ -12,44 +12,43 @@
   "about": {
     "title": "Về bloXchange",
     "mission": {
-      "title": "Sứ mệnh",
-      "description": "Cách mạng hóa giao dịch tài sản số thông qua công nghệ blockchain đổi mới."
+      "title": "Sứ mệnh của chúng tôi",
+      "description": "Gần đây, tôi đã khám phá ra tiềm năng thú vị của công nghệ blockchain và được truyền cảm hứng để đóng góp cho hệ sinh thái DeFi. Nhận thấy rằng nhiều nhà đầu tư và giao dịch thiếu kiến thức sâu về công nghệ, bloXchange hướng đến việc phát triển các công cụ giúp các nhà giao dịch điều hướng hiệu quả hơn trong lĩnh vực tài chính phi tập trung."
     },
     "vision": {
-      "title": "Tầm nhìn",
-      "description": "Tạo ra một nền tảng liền mạch, an toàn và dễ tiếp cận cho tương lai tài chính."
+      "title": "Tầm nhìn của chúng tôi",
+      "description": "Chúng tôi tập trung vào việc tạo ra các công cụ thiết thực cho giao dịch DeFi nhằm cải thiện hiệu suất và giảm thiểu rủi ro. Mặc dù công nghệ blockchain truyền cảm hứng cho DeFi, nhưng tính tập trung vẫn tồn tại ở nhiều khía cạnh. Mục tiêu của chúng tôi là làm cho giao dịch phi tập trung trở nên dễ tiếp cận và an toàn hơn cho mọi người."
     },
     "values": {
-      "title": "Giá trị cốt lõi",
-      "description": "Tin cậy, đổi mới và phát triển dựa trên cộng đồng là cốt lõi của chúng tôi."
+      "title": "Cách tiếp cận của chúng tôi",
+      "description": "Thông qua việc phát triển cẩn thận các công cụ giao dịch và giải pháp quản lý rủi ro, chúng tôi hy vọng sẽ đóng góp tích cực cho hệ sinh thái DeFi. Hầu hết các sản phẩm của chúng tôi sẽ được mã nguồn mở và miễn phí sử dụng, thể hiện cam kết của chúng tôi đối với cộng đồng. Chúng tôi đang học hỏi và phát triển cùng với cộng đồng khi công nghệ blockchain tiến hóa."
     }
   },
   "traze": {
     "title": "Công nghệ Traze",
-    "description": "Trải nghiệm sức mạnh của công nghệ Traze độc quyền, được thiết kế để nâng cao trải nghiệm giao dịch của bạn với các tính năng và khả năng tiên tiến.",
+    "description": "Traze là một bộ công cụ giao dịch toàn diện cho các DEX trên chuỗi Solana, được thiết kế để nâng cao trải nghiệm giao dịch phi tập trung của bạn. Trong khi một số nền tảng giao dịch tính phí bổ sung (0.5-1% giá trị giao dịch) để duy trì cơ sở hạ tầng của họ, Traze chạy trực tiếp trên trình duyệt của bạn và sử dụng điểm cuối RPC của bạn để tương tác với mạng blockchain, giúp bạn tiết kiệm phí giao dịch. Hơn nữa, Traze tăng cường bảo mật bằng cách tránh giao tiếp với các dịch vụ bên ngoài (ngoại trừ điểm cuối RPC của bạn), thậm chí không sử dụng Google Analytics. Hiện tại, Traze hỗ trợ pump.fun và có kế hoạch mở rộng hỗ trợ cho các DEX khác từng bước một.",
     "features": {
       "title": "Tính năng chính",
       "list": [
-        "Động cơ khớp lệnh nâng cao",
-        "Phân tích dữ liệu thị trường thời gian thực",
-        "Xử lý giao dịch an toàn",
-        "Quản lý rủi ro tự động"
+        "Mã nguồn mở và miễn phí sử dụng",
+        "Không có phí bổ sung",
+        "Chuyên biệt cho giao dịch DEX trên Solana",
+        "Công cụ giao dịch và phân tích tiên tiến"
       ]
     },
     "buttons": {
       "learn": "Tìm hiểu thêm",
       "docs": "Tài liệu"
+    },
+    "docs": {
+      "title": "Tài liệu Traze",
+      "description": "Hướng dẫn toàn diện về sử dụng công cụ giao dịch và tính năng của Traze",
+      "content": "Chào mừng bạn đến với tài liệu Traze. Tại đây, bạn sẽ tìm thấy thông tin chi tiết về cách thiết lập và sử dụng công cụ giao dịch Traze, hiểu rõ các tính năng của nó, và tối ưu hóa hiệu quả giao dịch của bạn trên các DEX Solana."
     }
   },
   "contact": {
-    "title": "Liên hệ",
-    "description": "Có câu hỏi? Chúng tôi luôn sẵn sàng giúp đỡ. Gửi tin nhắn cho chúng tôi và chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
-    "form": {
-      "name": "Tên",
-      "email": "Email",
-      "message": "Tin nhắn",
-      "submit": "Gửi tin nhắn"
-    }
+    "title": "Liên hệ với chúng tôi",
+    "description": "Bạn có câu hỏi? Chúng tôi luôn sẵn sàng giúp đỡ. Hãy liên hệ với chúng tôi qua một trong các kênh sau:"
   },
   "language": {
     "en": "English",

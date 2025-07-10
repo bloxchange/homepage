@@ -77,7 +77,12 @@ const Traze = () => {
                   ))}
               </VStack>
               <HStack gap={4} pt={4}>
-                <Link href="/learn" _hover={{ textDecoration: 'none' }}>
+                <Link
+                  href="https://traze.bloxchange.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     bg="brand.primary"
                     color="brand.background"
@@ -87,7 +92,7 @@ const Traze = () => {
                     {t('traze.buttons.learn')}
                   </Button>
                 </Link>
-                <Link href="/docs" _hover={{ textDecoration: 'none' }}>
+                <Link href="/traze-docs" _hover={{ textDecoration: 'none' }}>
                   <Button
                     bg="brand.primary"
                     color="brand.background"
