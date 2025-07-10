@@ -10,6 +10,7 @@ import {
   Portal,
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Navigation = () => {
   const { t, i18n } = useTranslation();
@@ -63,48 +64,48 @@ const Navigation = () => {
           </HStack>
           <HStack gap={8}>
             <ChakraLink
-              href="/"
               fontSize="lg"
               color="brand.text"
               _hover={{
                 color: 'brand.accent',
                 textShadow: 'glow',
               }}
+              asChild
             >
-              {t('nav.home')}
+              <RouterLink to="/">{t('nav.home')}</RouterLink>
             </ChakraLink>
             <ChakraLink
-              href="/about"
               fontSize="lg"
               color="brand.text"
               _hover={{
                 color: 'brand.accent',
                 textShadow: 'glow',
               }}
+              asChild
             >
-              {t('nav.about')}
+              <RouterLink to="/about">{t('nav.about')}</RouterLink>
             </ChakraLink>
             <ChakraLink
-              href="/traze"
               fontSize="lg"
               color="brand.text"
               _hover={{
                 color: 'brand.accent',
                 textShadow: 'glow',
               }}
+              asChild
             >
-              {t('nav.traze')}
+              <RouterLink to="/traze">{t('nav.traze')}</RouterLink>
             </ChakraLink>
             <ChakraLink
-              href="/contact"
               fontSize="lg"
               color="brand.text"
               _hover={{
                 color: 'brand.accent',
                 textShadow: 'glow',
               }}
+              asChild
             >
-              {t('nav.contact')}
+              <RouterLink to="/contact">{t('nav.contact')}</RouterLink>
             </ChakraLink>
             <Select.Root
               size="xs"

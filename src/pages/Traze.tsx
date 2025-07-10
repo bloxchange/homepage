@@ -9,6 +9,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Traze = () => {
   const { t } = useTranslation();
@@ -92,15 +93,17 @@ const Traze = () => {
                     {t('traze.buttons.learn')}
                   </Button>
                 </Link>
-                <Link href="/traze-docs" _hover={{ textDecoration: 'none' }}>
-                  <Button
-                    bg="brand.primary"
-                    color="brand.background"
-                    _hover={{ boxShadow: 'glow' }}
-                    fontFamily="monospace"
-                  >
-                    {t('traze.buttons.docs')}
-                  </Button>
+                <Link asChild _hover={{ textDecoration: 'none' }}>
+                  <RouterLink to="/traze-docs">
+                    <Button
+                      bg="brand.primary"
+                      color="brand.background"
+                      _hover={{ boxShadow: 'glow' }}
+                      fontFamily="monospace"
+                    >
+                      {t('traze.buttons.docs')}
+                    </Button>
+                  </RouterLink>
                 </Link>
               </HStack>
             </VStack>
