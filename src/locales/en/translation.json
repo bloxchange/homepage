@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "traze": "Traze",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to bloXchange",
+    "description": "The next generation blockchain exchange platform.\nWhere security meets innovation."
+  },
+  "about": {
+    "title": "About bloXchange",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To revolutionize digital asset trading through innovative blockchain technology."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "Creating a seamless, secure, and accessible platform for the future of finance."
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "Trust, innovation, and community-driven development are at our core."
+    }
+  },
+  "traze": {
+    "title": "Traze Technology",
+    "description": "Experience the power of our proprietary Traze technology, designed to enhance your trading experience with advanced features and capabilities.",
+    "features": {
+      "title": "Key Features",
+      "list": [
+        "Advanced order matching engine",
+        "Real-time market data analysis",
+        "Secure transaction processing",
+        "Automated risk management"
+      ]
+    },
+    "buttons": {
+      "learn": "Learn More",
+      "docs": "Documentation"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have questions? We're here to help. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "vi": "Tiếng Việt"
+  }
+}

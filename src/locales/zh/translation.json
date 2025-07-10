@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "traze": "Traze",
+    "contact": "联系我们"
+  },
+  "home": {
+    "welcome": "欢迎来到 bloXchange",
+    "description": "下一代区块链交易平台。\n安全与创新的完美结合。"
+  },
+  "about": {
+    "title": "关于 bloXchange",
+    "mission": {
+      "title": "我们的使命",
+      "description": "通过创新的区块链技术革新数字资产交易。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "为金融的未来打造无缝、安全、便捷的平台。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "description": "信任、创新和社区驱动的发展是我们的核心。"
+    }
+  },
+  "traze": {
+    "title": "Traze 技术",
+    "description": "体验我们专有的 Traze 技术，通过先进的功能和性能提升您的交易体验。",
+    "features": {
+      "title": "核心功能",
+      "list": [
+        "高级订单匹配引擎",
+        "实时市场数据分析",
+        "安全交易处理",
+        "自动风险管理"
+      ]
+    },
+    "buttons": {
+      "learn": "了解更多",
+      "docs": "技术文档"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "有问题吗？我们随时为您提供帮助。发送消息给我们，我们会尽快回复。",
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "message": "消息",
+      "submit": "发送消息"
+    }
+  },
+  "language": {
+    "en": "English",
+    "zh": "中文",
+    "vi": "Tiếng Việt"
+  }
+}
