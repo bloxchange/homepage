@@ -64,7 +64,7 @@ const Contact = () => {
               </HStack>
             </Link>
             <Link
-              href="https://github.com/bloxchange/traze"
+              href="https://github.com/bloxchange"
               color="brand.text"
               _hover={{
                 color: 'brand.accent',

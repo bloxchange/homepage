@@ -49,7 +49,7 @@ const Footer = () => {
               <Icon as={FaXTwitter} boxSize={5} />
             </Link>
             <Link
-              href="https://github.com/bloxchange/traze"
+              href="https://github.com/bloxchange"
               target="_blank"
               rel="noopener noreferrer"
               color="brand.muted"
