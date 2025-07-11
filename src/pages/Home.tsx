@@ -1,31 +1,74 @@
-import { Box, Container, Heading, Text, VStack } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Box, Button, Container, Heading, HStack, Link, Text, VStack } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Home = () => {
-  const { t } = useTranslation();
 
   return (
-    <Box as="section" py={20} bg="brand.background">
+    <Box as="section" py={20} bg="brand.background" borderBottom="1px solid" borderColor="brand.border">
       <Container maxW="container.xl">
-        <VStack gap={12} alignItems="flex-start">
+        <VStack gap={8} alignItems="center" textAlign="center">
           <Heading
-            size="2xl"
+            as="h1"
+            size="4xl"
             color="brand.text"
             textShadow="glow"
             fontFamily="monospace"
             letterSpacing="wider"
+            bgGradient="linear(to-r, brand.primary, brand.accent)"
+            bgClip="text"
           >
-            {t('home.welcome')}
+            Traze
+          </Heading>
+          <Heading
+            as="h2"
+            size="lg"
+            color="brand.text"
+            fontFamily="monospace"
+            fontWeight="normal"
+            maxW="3xl"
+          >
+            A Modern Component Library for Building Beautiful and Responsive Web Applications
           </Heading>
           <Text
             fontSize="xl"
             color="brand.muted"
-            fontFamily="monospace"
-            whiteSpace="pre-line"
-            animation="typing 4s steps(60, end)"
+            maxW="2xl"
+            lineHeight="tall"
           >
-            {t('home.description')}
+            Traze provides a comprehensive suite of customizable UI components, powerful theming capabilities, and intuitive APIs to help you create stunning user interfaces with ease.
           </Text>
+          <HStack gap={4} pt={4}>
+            <Link
+              href="https://traze.bloxchange.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Button
+                bg="brand.primary"
+                color="brand.background"
+                _hover={{ boxShadow: 'glow' }}
+                fontFamily="monospace"
+              >
+                Try it Now
+              </Button>
+            </Link>
+            <Link
+              asChild
+              _hover={{ textDecoration: 'none' }}
+            >
+              <RouterLink to="/traze-docs">
+                <Button
+                  bg="brand.primary"
+                  color="brand.background"
+                  _hover={{ boxShadow: 'glow' }}
+                  fontFamily="monospace"
+                >
+                  Documentation
+                </Button>
+              </RouterLink>
+            </Link>
+          </HStack>
         </VStack>
       </Container>
     </Box>
