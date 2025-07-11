@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Grid Canvas</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        background: #1a1a1a;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+      }
+
+      canvas {
+        border: 2px solid #333;
+        background: #000;
+        cursor: grab;
+      }
+
+      canvas:active {
+        cursor: grabbing;
+      }
+
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+
+      label {
+        font-size: 12px;
+        color: #ccc;
+      }
+
+      input[type='range'] {
+        width: 100px;
+      }
+
+      button {
+        padding: 8px 16px;
+        background: #333;
+        color: #fff;
+        border: 1px solid #555;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #555;
+      }
+
+      .info {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #aaa;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>3D Grid Canvas</h1>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Grid Size</label>
+        <input type="range" id="gridSize" min="5" max="20" value="10" />
+        <span id="gridSizeValue">10</span>
+      </div>
+
+      <div class="control-group">
+        <label>Zoom</label>
+        <input type="range" id="zoom" min="50" max="200" value="100" />
+        <span id="zoomValue">100%</span>
+      </div>
+
+      <div class="control-group">
+        <label>Rotation Speed</label>
+        <input
+          type="range"
+          id="rotSpeed"
+          min="0"
+          max="5"
+          value="1"
+          step="0.1"
+        />
+        <span id="rotSpeedValue">1.0</span>
+      </div>
+
+      <button id="toggleAuto">Auto Rotate: ON</button>
+      <button id="reset">Reset View</button>
+    </div>
+
+    <div class="info">
+      Drag to rotate manually • Use controls to adjust grid properties
+    </div>
+
+    <script>
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Grid properties
+      let gridSize = 10;
+      let spacing = 40;
+      let zoom = 1;
+
+      // Rotation
+      let rotX = 0.5;
+      let rotY = 0.5;
+      let rotZ = 0;
+      let autoRotate = true;
+      let rotSpeed = 0.01;
+
+      // Mouse interaction
+      let isDragging = false;
+      let lastMouseX = 0;
+      let lastMouseY = 0;
+
+      // 3D to 2D projection
+      function project3D(x, y, z) {
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const distance = 400 * zoom;
+
+        // Apply rotations
+        let cosX = Math.cos(rotX),
+          sinX = Math.sin(rotX);
+        let cosY = Math.cos(rotY),
+          sinY = Math.sin(rotY);
+        let cosZ = Math.cos(rotZ),
+          sinZ = Math.sin(rotZ);
+
+        // Rotate around X axis
+        let y1 = y * cosX - z * sinX;
+        let z1 = y * sinX + z * cosX;
+
+        // Rotate around Y axis
+        let x2 = x * cosY + z1 * sinY;
+        let z2 = -x * sinY + z1 * cosY;
+
+        // Rotate around Z axis
+        let x3 = x2 * cosZ - y1 * sinZ;
+        let y3 = x2 * sinZ + y1 * cosZ;
+
+        // Project to 2D
+        let scale = distance / (distance + z2);
+        let x2d = centerX + x3 * scale;
+        let y2d = centerY + y3 * scale;
+
+        return { x: x2d, y: y2d, z: z2, scale: scale };
+      }
+
+      function drawGrid() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const half = gridSize / 2;
+        const points = [];
+
+        // Generate all grid points
+        for (let x = -half; x <= half; x++) {
+          for (let y = -half; y <= half; y++) {
+            for (let z = -half; z <= half; z++) {
+              const projected = project3D(
+                x * spacing,
+                y * spacing,
+                z * spacing
+              );
+              points.push({
+                x3d: x,
+                y3d: y,
+                z3d: z,
+                x2d: projected.x,
+                y2d: projected.y,
+                z2d: projected.z,
+                scale: projected.scale,
+              });
+            }
+          }
+        }
+
+        // Sort points by z-depth for proper rendering
+        points.sort((a, b) => a.z2d - b.z2d);
+
+        // Draw grid lines
+        ctx.strokeStyle = '#00ff88';
+        ctx.lineWidth = 1;
+
+        // Draw lines connecting adjacent points
+        for (let i = 0; i < points.length; i++) {
+          const p1 = points[i];
+
+          // Connect to adjacent points
+          for (let j = i + 1; j < points.length; j++) {
+            const p2 = points[j];
+
+            // Check if points are adjacent (distance of 1 in exactly one dimension)
+            let dx = Math.abs(p1.x3d - p2.x3d);
+            let dy = Math.abs(p1.y3d - p2.y3d);
+            let dz = Math.abs(p1.z3d - p2.z3d);
+
+            if (
+              (dx === 1 && dy === 0 && dz === 0) ||
+              (dx === 0 && dy === 1 && dz === 0) ||
+              (dx === 0 && dy === 0 && dz === 1)
+            ) {
+              // Calculate alpha based on depth
+              let alpha = Math.min(p1.scale, p2.scale) * 0.8;
+              ctx.globalAlpha = alpha;
+
+              ctx.beginPath();
+              ctx.moveTo(p1.x2d, p1.y2d);
+              ctx.lineTo(p2.x2d, p2.y2d);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw points
+        ctx.globalAlpha = 1;
+        for (let point of points) {
+          let alpha = point.scale * 0.9;
+          let size = 2 * point.scale;
+
+          ctx.globalAlpha = alpha;
+          ctx.fillStyle = '#00ff88';
+          ctx.beginPath();
+          ctx.arc(point.x2d, point.y2d, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.globalAlpha = 1;
+      }
+
+      function animate() {
+        if (autoRotate) {
+          rotY += rotSpeed;
+          rotX += rotSpeed * 0.5;
+        }
+
+        drawGrid();
+        requestAnimationFrame(animate);
+      }
+
+      // Mouse controls
+      canvas.addEventListener('mousedown', e => {
+        isDragging = true;
+        lastMouseX = e.clientX;
+        lastMouseY = e.clientY;
+      });
+
+      canvas.addEventListener('mousemove', e => {
+        if (isDragging) {
+          let deltaX = e.clientX - lastMouseX;
+          let deltaY = e.clientY - lastMouseY;
+
+          rotY += deltaX * 0.01;
+          rotX += deltaY * 0.01;
+
+          lastMouseX = e.clientX;
+          lastMouseY = e.clientY;
+        }
+      });
+
+      canvas.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        isDragging = false;
+      });
+
+      // Controls
+      document.getElementById('gridSize').addEventListener('input', e => {
+        gridSize = parseInt(e.target.value);
+        document.getElementById('gridSizeValue').textContent = gridSize;
+      });
+
+      document.getElementById('zoom').addEventListener('input', e => {
+        zoom = parseInt(e.target.value) / 100;
+        document.getElementById('zoomValue').textContent = e.target.value + '%';
+      });
+
+      document.getElementById('rotSpeed').addEventListener('input', e => {
+        rotSpeed = parseFloat(e.target.value) * 0.01;
+        document.getElementById('rotSpeedValue').textContent = e.target.value;
+      });
+
+      document.getElementById('toggleAuto').addEventListener('click', e => {
+        autoRotate = !autoRotate;
+        e.target.textContent = autoRotate
+          ? 'Auto Rotate: ON'
+          : 'Auto Rotate: OFF';
+      });
+
+      document.getElementById('reset').addEventListener('click', () => {
+        rotX = 0.5;
+        rotY = 0.5;
+        rotZ = 0;
+      });
+
+      // Start animation
+      animate();
+    </script>
+  </body>
+</html>

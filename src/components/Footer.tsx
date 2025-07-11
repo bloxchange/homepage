@@ -20,6 +20,12 @@ const Footer = () => {
       bg="brand.background"
       borderTop="1px solid"
       borderColor="brand.border"
+      position="fixed"
+      bottom={0}
+      left={0}
+      right={0}
+      width="100%"
+      zIndex={1}
     >
       <Container maxW="container.xl">
         <HStack justify="space-between" align="center">
