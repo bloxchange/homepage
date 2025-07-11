@@ -28,7 +28,12 @@ const MarkdownPage = ({ filePath }: MarkdownPageProps) => {
 
   if (loading) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" minH="60vh">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minH="60vh"
+      >
         <Spinner size="xl" color="brand.primary" />
       </Box>
     );

@@ -24,10 +24,12 @@ const Footer = () => {
       <Container maxW="container.xl">
         <HStack justify="space-between" align="center">
           <HStack gap={4}>
-            <Image src="/bloxchange_logo.png" alt="bloXchange" height="24px" />
             <Text color="brand.muted" fontSize="sm" fontFamily="monospace">
               © {currentYear} bloXchange. All rights reserved.
             </Text>
+          </HStack>
+          <HStack gap={4} justify="center">
+            <Image src="/bloxchange_logo.png" alt="bloXchange" height="32px" />
           </HStack>
           <HStack gap={4}>
             <Link

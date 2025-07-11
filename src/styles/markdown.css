@@ -118,6 +118,6 @@
   text-decoration: underline;
 }
 
-.markdown-body img[alt=Configuration] {
+.markdown-body img[alt='Configuration'] {
   height: 480px;
 }

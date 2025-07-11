@@ -1,6 +1,7 @@
 # Tài liệu Traze
 
 ## Mục lục
+
 - [Giới thiệu](#giới-thiệu)
 - [Bắt đầu](#bắt-đầu)
 - [Tính năng](#tính-năng)
@@ -11,6 +12,7 @@
 - [Giấy phép](#giấy-phép)
 
 ## Giới thiệu
+
 Traze là một ứng dụng mã nguồn mở, miễn phí sử dụng, được thiết kế để chạy trong môi trường trình duyệt. Tài liệu này sẽ hướng dẫn bạn về các tính năng và khả năng của nó. Traze cung cấp các tính năng giao dịch thiết yếu bao gồm hoán đổi token và giám sát giao dịch.
 
 ## Bắt đầu
@@ -25,6 +27,7 @@ Chào mừng bạn đến với Traze! Hãy cùng làm quen với giao diện gi
 Ở bên trái, bạn sẽ thấy Danh sách thành phần - coi nó như hộp công cụ giao dịch của bạn. Chỉ cần chọn những gì bạn cần và kéo vào không gian làm việc. Chúng tôi luôn bổ sung thêm công cụ mới dựa trên nhu cầu của cộng đồng! ![Danh sách thành phần](images/component_list_cap.png)
 
 Ở bên phải, bạn sẽ tìm thấy mọi thứ khác bạn có thể cần: ![Các mục điều hướng](images/navigation_cap.png)
+
 - Cần giúp đỡ? Sử dụng Liên hệ - Phản hồi
 - Muốn tìm hiểu thêm? Xem Hướng dẫn sử dụng
 - Tò mò về tương lai? Xem Lộ trình của chúng tôi
@@ -42,11 +45,13 @@ Chúng tôi bắt đầu với mạng chính của Solana, nhưng để có tr�
 ## Tính năng
 
 ### Swarm
+
 Swarm là người quản lý nhóm giao dịch của bạn! Nó cho phép bạn tổ chức các ví thành các nhóm chiến lược và thiết lập quy tắc giao dịch tùy chỉnh cho từng nhóm. Cho dù bạn đang chạy nhiều chiến lược hay quản lý các danh mục đầu tư khác nhau, bạn có thể tạo nhiều swarm theo nhu cầu trong không gian làm việc của mình. Mỗi swarm có thể có mục đích và cách tiếp cận giao dịch riêng biệt.
 
 ![Quản lý Swarm](images/swarms_cap.png)
 
 Với Swarm, bạn có thể:
+
 - Nhóm các ví liên quan lại với nhau
 - Áp dụng chiến lược giao dịch cụ thể cho từng nhóm
 - Theo dõi nhiều cách tiếp cận giao dịch cùng lúc
@@ -55,6 +60,7 @@ Với Swarm, bạn có thể:
 ## Hỗ trợ
 
 Để được hỗ trợ kỹ thuật hoặc có câu hỏi, hãy liên hệ với chúng tôi qua một trong các kênh sau:
+
 - Discord: [Tham gia cộng đồng của chúng tôi](https://discord.gg/fVM6pd3Z)
 - X (Twitter): [@bloxchangedev](https://x.com/bloxchangedev)
 - GitHub: [bloxchange](https://github.com/bloxchange)
@@ -63,6 +69,7 @@ Với Swarm, bạn có thể:
 ## Cập nhật
 
 Cập nhật các tính năng và cải tiến mới nhất:
+
 - Theo dõi [kho GitHub](https://github.com/bloxchange/traze) của chúng tôi
 - Đăng ký nhận bản tin
 - Tham gia cộng đồng Discord
@@ -70,6 +77,7 @@ Cập nhật các tính năng và cải tiến mới nhất:
 ## Đóng góp
 
 Chúng tôi hoan nghênh đóng góp từ cộng đồng:
+
 - Báo cáo lỗi
 - Đề xuất tính năng
 - Gửi pull request

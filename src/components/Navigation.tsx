@@ -49,19 +49,23 @@ const Navigation = () => {
     >
       <Container maxW="container.xl">
         <HStack gap={8} justifyContent="space-between">
-          <HStack gap={4}>
-            <Image src="/bloxchange_logo.png" alt="bloXchange" h="32px" />
-            <Text
-              fontSize="2xl"
-              fontWeight="bold"
-              color="brand.text"
-              fontFamily="monospace"
-              letterSpacing="wider"
-              textShadow="glow"
-            >
-              bloXchange
-            </Text>
-          </HStack>
+          <ChakraLink asChild>
+            <RouterLink to="/">
+              <HStack gap={4}>
+                <Image src="/bloxchange_logo.png" alt="bloXchange" h="32px" />
+                <Text
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  color="brand.text"
+                  fontFamily="monospace"
+                  letterSpacing="wider"
+                  textShadow="glow"
+                >
+                  bloXchange
+                </Text>
+              </HStack>
+            </RouterLink>
+          </ChakraLink>
           <HStack gap={8}>
             <ChakraLink
               fontSize="lg"
@@ -74,6 +78,7 @@ const Navigation = () => {
             >
               <RouterLink to="/">{t('nav.home')}</RouterLink>
             </ChakraLink>
+
             <ChakraLink
               fontSize="lg"
               color="brand.text"

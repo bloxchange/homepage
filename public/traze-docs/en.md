@@ -1,6 +1,7 @@
 # Traze Documentation
 
 ## Contents
+
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Features](#features)
@@ -11,6 +12,7 @@
 - [License](#license)
 
 ## Introduction
+
 Traze is an opensource, free to use application, designed to run in the browser environment. This documentation will guide you through its features and capabilities. Traze provides essential trading features including token swapping and transaction monitoring.
 
 ## Getting Started
@@ -25,6 +27,7 @@ Here's what you'll find in the header: ![Header components](images/header_cap.pn
 On the left, you'll see our Component list - think of it as your trading toolbox. Just grab what you need and drop it into your workspace. We're always adding new tools based on what our community needs! ![Component list](images/component_list_cap.png)
 
 On the right side, you'll find everything else you might need: ![Navigation items](images/navigation_cap.png)
+
 - Need help? Use Contact - Feedback
 - Want to learn more? Check the User manual
 - Curious what's next? See our Roadmap
@@ -42,11 +45,13 @@ We start you off with Solana's main network, but for the best experience, you mi
 ## Features
 
 ### Swarm
+
 Swarm is your trading team manager! It lets you organize your wallets into strategic groups and set up custom trading rules for each one. Whether you're running multiple strategies or managing different portfolios, you can create as many swarms as you need in your workspace. Each swarm can have its own unique purpose and trading approach.
 
 ![Swarm Management](images/swarms_cap.png)
 
 With Swarm, you can:
+
 - Group related wallets together
 - Apply specific trading strategies to each group
 - Monitor multiple trading approaches simultaneously
@@ -55,6 +60,7 @@ With Swarm, you can:
 ## Support
 
 For technical support or questions, connect with us through any of these channels:
+
 - Discord: [Join our community](https://discord.gg/fVM6pd3Z)
 - X (Twitter): [@bloxchangedev](https://x.com/bloxchangedev)
 - GitHub: [bloxchange](https://github.com/bloxchange)
@@ -63,6 +69,7 @@ For technical support or questions, connect with us through any of these channel
 ## Updates
 
 Stay updated with the latest features and improvements:
+
 - Follow our [GitHub repository](https://github.com/bloxchange/traze)
 - Subscribe to our newsletter
 - Join our Discord community
@@ -70,6 +77,7 @@ Stay updated with the latest features and improvements:
 ## Contributing
 
 We welcome contributions from the community:
+
 - Report bugs
 - Suggest features
 - Submit pull requests
