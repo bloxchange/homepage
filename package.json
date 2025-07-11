@@ -2,7 +2,7 @@
   "name": "homepage",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://bloxchange.github.io/homepage",
+  "homepage": "https://bloxchange.dev",
   "type": "module",
   "scripts": {
     "dev": "vite",
