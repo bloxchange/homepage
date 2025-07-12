@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import {
-  Box,
-  Button,
-  Container,
-  Heading,
-  HStack,
-  Link,
-  Text,
-  VStack,
+  Box
 } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+import ContactBanner from './ContactBanner';
 import DeFiBanner from './DeFiBanner';
+import OpenSourceBanner from './OpenSourceBanner';
+import ScrollDownArrow from './ScrollDownArrow';
+import TrazeBanner from './TrazeBanner';
 
 const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -109,44 +105,169 @@ const MatrixBackground = () => {
     };
   }, [scrollProgress]);
 
-  // DeFiBanner calculations - appears after TrazeBanner (90-100% scroll)
-  const defiBannerStyles = useMemo(() => {
-    // Transition phase: column transforms to banner (90-95% scroll)
-    const transitionProgress = Math.max(
-      0,
-      Math.min(1, (scrollProgress - 0.9) / 0.05)
-    );
-
-    // Expansion phase: banner grows to full size (95-100% scroll)
-    const expansionProgress = Math.max(
-      0,
-      Math.min(1, (scrollProgress - 0.95) / 0.05)
-    );
-
-    // Calculate banner properties
+  // ContactBanner calculations - appears at the end (90-100% scroll)
+  const contactBannerStyles = useMemo(() => {
+    // Transition phase: 90% - 92% scroll (2% range)
+    // Expansion phase: 92% - 93% scroll (1% range)
+    // Hold phase: 93% - 100% scroll (7% range - stays visible at end)
     let bannerOpacity, bannerScale, bannerTranslateY, bannerWidth, bannerHeight;
 
     if (scrollProgress < 0.9) {
+      // Banner hidden before 90% scroll
+      bannerOpacity = 0;
+      bannerScale = 0.1;
+      bannerTranslateY = 0;
+      bannerWidth = '2px';
+      bannerHeight = '80vh';
+    } else if (scrollProgress < 0.92) {
+      // Transition phase: 90% - 92% scroll
+      const transitionProgress = (scrollProgress - 0.9) / 0.02;
+      bannerOpacity = transitionProgress * 0.9;
+      bannerScale = 0.1 + 0.4 * transitionProgress;
+      bannerTranslateY = 0;
+      bannerWidth = `${2 + 298 * transitionProgress}px`;
+      bannerHeight = '80vh';
+    } else if (scrollProgress < 0.93) {
+      // Expansion phase: 92% - 93% scroll
+      const expansionProgress = (scrollProgress - 0.92) / 0.01;
+      bannerOpacity = 0.9 + 0.1 * expansionProgress;
+      bannerScale = 0.5 + 0.5 * expansionProgress;
+      bannerTranslateY = 0;
+      bannerWidth = `${300 + 700 * expansionProgress}px`;
+      bannerHeight = `${80 - 20 * expansionProgress}vh`;
+    } else {
+      // Hold phase: 93% - 100% scroll (stays visible)
+      bannerOpacity = 1;
+      bannerScale = 1;
+      bannerTranslateY = 0;
+      bannerWidth = '1000px';
+      bannerHeight = '60vh';
+    }
+
+    return {
+      opacity: bannerOpacity,
+      transform: `translateY(${bannerTranslateY}px) scale(${bannerScale})`,
+      width: bannerWidth,
+      height: bannerHeight,
+    };
+  }, [scrollProgress]);
+
+  // OpenSourceBanner calculations - appears after DeFiBanner (80-88% scroll)
+  const openSourceBannerStyles = useMemo(() => {
+    // Transition phase: 80% - 82% scroll (2% range)
+    // Expansion phase: 82% - 83% scroll (1% range)
+    // Hold phase: 83% - 86% scroll (3% range)
+    // Fade-out phase: 86% - 88% scroll (2% range)
+    let bannerOpacity, bannerScale, bannerTranslateY, bannerWidth, bannerHeight;
+
+    if (scrollProgress < 0.8) {
+      // Banner hidden before 80% scroll
+      bannerOpacity = 0;
+      bannerScale = 0.1;
+      bannerTranslateY = 0;
+      bannerWidth = '2px';
+      bannerHeight = '80vh';
+    } else if (scrollProgress < 0.82) {
+      // Transition phase: 80% - 82% scroll
+      const transitionProgress = (scrollProgress - 0.8) / 0.02;
+      bannerOpacity = transitionProgress * 0.9;
+      bannerScale = 0.1 + 0.4 * transitionProgress;
+      bannerTranslateY = 0;
+      bannerWidth = `${2 + 298 * transitionProgress}px`;
+      bannerHeight = '80vh';
+    } else if (scrollProgress < 0.83) {
+      // Expansion phase: 82% - 83% scroll
+      const expansionProgress = (scrollProgress - 0.82) / 0.01;
+      bannerOpacity = 0.9 + 0.1 * expansionProgress;
+      bannerScale = 0.5 + 0.5 * expansionProgress;
+      bannerTranslateY = 0;
+      bannerWidth = `${300 + 700 * expansionProgress}px`;
+      bannerHeight = `${80 - 20 * expansionProgress}vh`;
+    } else if (scrollProgress < 0.86) {
+      // Hold phase: 83% - 86% scroll
+      bannerOpacity = 1;
+      bannerScale = 1;
+      bannerTranslateY = 0;
+      bannerWidth = '1000px';
+      bannerHeight = '60vh';
+    } else if (scrollProgress < 0.88) {
+      // Fade-out phase: 86% - 88% scroll
+      const fadeProgress = (scrollProgress - 0.86) / 0.02;
+      bannerOpacity = 1 - fadeProgress;
+      bannerScale = 1;
+      bannerTranslateY = 0;
+      bannerWidth = '1000px';
+      bannerHeight = '60vh';
+    } else {
+      // Completely hidden after 88%
+      bannerOpacity = 0;
+      bannerScale = 0.1;
+      bannerTranslateY = 0;
+      bannerWidth = '2px';
+      bannerHeight = '80vh';
+    }
+
+    return {
+      opacity: bannerOpacity,
+      transform: `translateY(${bannerTranslateY}px) scale(${bannerScale})`,
+      width: bannerWidth,
+      height: bannerHeight,
+    };
+  }, [scrollProgress]);
+
+  // DeFiBanner calculations - appears after TrazeBanner (70-78% scroll)
+  const defiBannerStyles = useMemo(() => {
+    // Transition phase: 70% - 72% scroll (2% range)
+    // Expansion phase: 72% - 73% scroll (1% range)
+    // Hold phase: 73% - 76% scroll (3% range)
+    // Fade-out phase: 76% - 78% scroll (2% range)
+    let bannerOpacity, bannerScale, bannerTranslateY, bannerWidth, bannerHeight;
+
+    if (scrollProgress < 0.7) {
       // Archive phase: banner hidden
       bannerOpacity = 0;
       bannerScale = 0.1;
       bannerTranslateY = 0;
       bannerWidth = '2px';
       bannerHeight = '80vh';
-    } else if (scrollProgress < 0.95) {
-      // Transition phase: column transforms to banner
+    } else if (scrollProgress < 0.72) {
+      // Transition phase: 70% - 72% scroll
+      const transitionProgress = (scrollProgress - 0.7) / 0.02;
       bannerOpacity = transitionProgress * 0.9;
       bannerScale = 0.1 + transitionProgress * 0.4;
       bannerTranslateY = 0;
       bannerWidth = `${2 + transitionProgress * 298}px`;
       bannerHeight = '80vh';
-    } else {
-      // Expansion phase: banner grows to full size
+    } else if (scrollProgress < 0.73) {
+      // Expansion phase: 72% - 73% scroll
+      const expansionProgress = (scrollProgress - 0.72) / 0.01;
       bannerOpacity = 0.9 + expansionProgress * 0.1;
       bannerScale = 0.5 + expansionProgress * 0.5;
       bannerTranslateY = 0;
       bannerWidth = `${300 + expansionProgress * 700}px`;
       bannerHeight = `${80 - expansionProgress * 20}vh`;
+    } else if (scrollProgress < 0.76) {
+      // Hold phase: 73% - 76% scroll
+      bannerOpacity = 1;
+      bannerScale = 1;
+      bannerTranslateY = 0;
+      bannerWidth = '1000px';
+      bannerHeight = '60vh';
+    } else if (scrollProgress < 0.78) {
+      // Fade out phase: 76% - 78% scroll
+      const fadeProgress = (scrollProgress - 0.76) / 0.02;
+      bannerOpacity = 1 - fadeProgress;
+      bannerScale = 1;
+      bannerTranslateY = 0;
+      bannerWidth = '1000px';
+      bannerHeight = '60vh';
+    } else {
+      // Completely hidden after 78%
+      bannerOpacity = 0;
+      bannerScale = 0.1;
+      bannerTranslateY = 0;
+      bannerWidth = '2px';
+      bannerHeight = '80vh';
     }
 
     return {
@@ -537,77 +658,6 @@ const MatrixBackground = () => {
     };
   }, [scrollProgress]);
 
-  // TrazeBanner component integrated directly
-  const TrazeBannerContent = () => (
-    <Box
-      as="section"
-      py={20}
-      bg="brand.background"
-      borderBottom="1px solid"
-      borderColor="brand.border"
-    >
-      <Container maxW="container.xl">
-        <VStack gap={8} alignItems="center" textAlign="center">
-          <Heading
-            as="h1"
-            size="4xl"
-            color="brand.text"
-            textShadow="glow"
-            fontFamily="monospace"
-            letterSpacing="wider"
-            bgGradient="linear(to-r, brand.primary, brand.accent)"
-            bgClip="text"
-          >
-            Traze
-          </Heading>
-          <Heading
-            as="h2"
-            size="lg"
-            color="brand.text"
-            fontFamily="monospace"
-            fontWeight="normal"
-            maxW="3xl"
-          >
-            A Modern Component Library for Building Beautiful and Responsive Web
-            Applications
-          </Heading>
-          <Text fontSize="xl" color="brand.muted" maxW="2xl" lineHeight="tall">
-            Traze provides a comprehensive suite of customizable UI components,
-            powerful theming capabilities, and intuitive APIs to help you create
-            stunning user interfaces with ease.
-          </Text>
-          <HStack gap={4} pt={4}>
-            <Link
-              href="https://traze.bloxchange.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              _hover={{ textDecoration: 'none' }}
-            >
-              <Button
-                bg="brand.primary"
-                color="brand.background"
-                _hover={{ boxShadow: 'glow' }}
-                fontFamily="monospace"
-              >
-                Try it Now
-              </Button>
-            </Link>
-            <RouterLink to="/traze-docs" style={{ textDecoration: 'none' }}>
-              <Button
-                bg="brand.primary"
-                color="brand.background"
-                _hover={{ boxShadow: 'glow' }}
-                fontFamily="monospace"
-              >
-                Documentation
-              </Button>
-            </RouterLink>
-          </HStack>
-        </VStack>
-      </Container>
-    </Box>
-  );
-
   return (
     <>
       {/* Matrix Background Canvas */}
@@ -641,7 +691,7 @@ const MatrixBackground = () => {
         alignItems="center"
         justifyContent="center"
         willChange="transform, opacity, width, height"
-        pointerEvents={scrollProgress > 0.95 ? 'auto' : 'none'} // Enable interactions when fully visible
+        pointerEvents={scrollProgress > 0.91 && scrollProgress < 0.975 ? 'auto' : 'none'} // Enable interactions when fully visible
       >
         <DeFiBanner />
       </Box>
@@ -665,10 +715,53 @@ const MatrixBackground = () => {
           scrollProgress > 0.6 && scrollProgress < 0.85 ? 'auto' : 'none'
         } // Enable interactions when fully visible
       >
-        <TrazeBannerContent />
+        <TrazeBanner />
       </Box>
-    </>
-  );
+
+      {/* OpenSourceBanner that appears on scroll (97.5-99% scroll) */}
+      <Box
+        position="fixed"
+        top="50%"
+        left="50%"
+        transform={`translate(-50%, -50%) ${openSourceBannerStyles.transform}`}
+        zIndex={2}
+        opacity={openSourceBannerStyles.opacity}
+        width={openSourceBannerStyles.width}
+        height={openSourceBannerStyles.height}
+        overflow="hidden"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        willChange="transform, opacity, width, height"
+        pointerEvents={scrollProgress > 0.98 && scrollProgress < 0.99 ? 'auto' : 'none'} // Enable interactions when fully visible
+      >
+        <OpenSourceBanner />
+      </Box>
+
+      {/* ContactBanner that appears at the end (99-100% scroll) */}
+       <Box
+         position="fixed"
+         top="50%"
+         left="50%"
+         transform={`translate(-50%, -50%) ${contactBannerStyles.transform}`}
+         zIndex={2}
+         opacity={contactBannerStyles.opacity}
+         width={contactBannerStyles.width}
+         height={contactBannerStyles.height}
+         overflow="hidden"
+         display="flex"
+         alignItems="center"
+         justifyContent="center"
+         willChange="transform, opacity, width, height"
+         pointerEvents={scrollProgress >= 0.995 ? 'auto' : 'none'} // Enable interactions when fully visible
+       >
+         <ContactBanner />
+       </Box>
+
+       {/* Scroll Down Arrow - appears at the beginning and disappears when user scrolls */}
+       <ScrollDownArrow scrollProgress={scrollProgress} />
+     </>
+   );
 };
 
 export default MatrixBackground;

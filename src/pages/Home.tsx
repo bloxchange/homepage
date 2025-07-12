@@ -19,7 +19,7 @@ const Home = () => {
       />
 
       {/* Additional content space */}
-      <Box height="50vh" bg="brand.background" />
+      <Box height="150vh" bg="brand.background" />
     </Box>
   );
 };

@@ -32,12 +32,12 @@ const TrazeBanner = () => {
             <Heading
               as="h1"
               size="4xl"
-              color="brand.text"
+              color="brand.primary"
               textShadow="glow"
               fontFamily="monospace"
               letterSpacing="wider"
-              //bgGradient="linear(to-r, brand.primary, brand.accent)"
-              bgClip="text"
+              bgGradient="linear(to-r, brand.primary, brand.accent)"
+            //bgClip="text"
             >
               Traze
             </Heading>
@@ -60,38 +60,35 @@ const TrazeBanner = () => {
             including pump.fun support.
           </Text>
           <HStack gap={4} pt={4}>
-            <Link href="https://traze.bloxchange.dev" target="_blank">
+            <Link
+              href="https://traze.bloxchange.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{ textDecoration: 'none' }}
+            >
               <Button
-                size="lg"
                 bg="brand.primary"
-                color="white"
-                _hover={{ bg: 'brand.primaryHover' }}
+                color="brand.background"
+                _hover={{ boxShadow: 'glow' }}
                 fontFamily="monospace"
               >
                 Launch Traze
               </Button>
             </Link>
-            <Link asChild>
-              <RouterLink to="/traze-docs">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  borderColor="brand.primary"
-                  color="brand.primary"
-                  _hover={{
-                    bg: 'brand.primary',
-                    color: 'white',
-                  }}
-                  fontFamily="monospace"
-                >
-                  Documentation
-                </Button>
-              </RouterLink>
-            </Link>
+            <RouterLink to="/traze-docs" style={{ textDecoration: 'none' }}>
+              <Button
+                bg="brand.primary"
+                color="brand.background"
+                _hover={{ boxShadow: 'glow' }}
+                fontFamily="monospace"
+              >
+                Documentation
+              </Button>
+            </RouterLink>
           </HStack>
         </VStack>
       </Container>
-    </Box>
+    </Box >
   );
 };
 

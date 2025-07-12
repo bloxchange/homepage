@@ -1,13 +1,10 @@
 import {
   Box,
-  Button,
   Container,
   Heading,
-  HStack,
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
 
 const DeFiBanner = () => {
   return (
@@ -28,10 +25,9 @@ const DeFiBanner = () => {
               textShadow="glow"
               fontFamily="monospace"
               letterSpacing="wider"
-              //bgGradient="linear(to-r, brand.primary, brand.accent)"
-              bgClip="text"
+              bgGradient="linear(to-r, brand.primary, brand.accent)"
             >
-              DeFi Revolution
+              DeFi Enhancement
             </Heading>
           </VStack>
           <Heading
@@ -42,44 +38,17 @@ const DeFiBanner = () => {
             fontWeight="normal"
             maxW="3xl"
           >
-            Decentralizing the Centralized: A New Computing Paradigm
+            Optimizing Decentralization: Building Better DeFi Infrastructure
           </Heading>
           <Text fontSize="xl" color="brand.muted" maxW="2xl" lineHeight="tall">
-            Blockchain opened the decentralized world, but ironically, it has
-            become centralized somewhere. Can we decentralize it once more?
-            Computing resources remain a barrier to true decentralization. Our
-            mission is to optimize personal resources, making decentralized
-            computing accessible to everyone and breaking down the barriers that
-            prevent true financial freedom.
+            While blockchain technology has opened doors to decentralization,
+            many DeFi platforms still face challenges with accessibility and
+            resource optimization. We're enhancing the existing ecosystem by
+            improving computing efficiency and making decentralized finance
+            more accessible. Our approach focuses on optimizing personal
+            resources and strengthening the infrastructure that powers
+            decentralized financial services.
           </Text>
-          <HStack gap={4} pt={4}>
-            <RouterLink to="/about" style={{ textDecoration: 'none' }}>
-              <Button
-                size="lg"
-                bg="brand.primary"
-                color="white"
-                _hover={{ bg: 'brand.primaryHover' }}
-                fontFamily="monospace"
-              >
-                Learn More
-              </Button>
-            </RouterLink>
-            <RouterLink to="/contact" style={{ textDecoration: 'none' }}>
-              <Button
-                size="lg"
-                variant="outline"
-                borderColor="brand.primary"
-                color="brand.primary"
-                _hover={{
-                  bg: 'brand.primary',
-                  color: 'white',
-                }}
-                fontFamily="monospace"
-              >
-                Join the Movement
-              </Button>
-            </RouterLink>
-          </HStack>
         </VStack>
       </Container>
     </Box>
